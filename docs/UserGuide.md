@@ -214,6 +214,23 @@ Examples:
 *  `edit 1 n/Create UI pr/high` Edits the name and priority of the 1st task to be Create UI and HIGH respectively.
 *  `edit 2 c/frontend pe/charlotte@example.com` Edits the category of the 2nd task to be frontend and assigns the task to new person (Charlotte).
 
+### Finding a Task using keywords : `findTask`
+
+Finds tasks with names or descriptions that contain any of the given keywords.
+
+Format: `findTask KEYWORD [MORE_KEYWORDS]...`
+
+* The search is case-insensitive. e.g fix will match Fix
+* The order of the keywords does not matter. e.g. Toggle fix will match Fix toggle
+* The name and description are both searched.
+* Only full words will be matched e.g. Dark will not match Darkmode
+* Task with names or descriptions matching at least one keyword will be returned (i.e. OR search).
+  e.g. Fix will return Fix toggle, Fix routing
+
+Examples:
+* `findTask fix` returns Fix toggle and Fix routing
+* `findTask dark` returns Fix routing (description: Fix **dark** mode button)
+
 ### Filtering a Task : `filter`
 
 Filters the tasklist based on either **TASK_CATEGORY** or **TASK_DEADLINE** or **BOTH**.
